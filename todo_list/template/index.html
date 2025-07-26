@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do App</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li{
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>TO-DO List</h1>
+    <input type="text" id="taskInput" placeholder="Enter A New Task">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="tasklist"></ul>
+
+    <script>
+        // fetch and display tasks
+        function fetchTasks() {
+            fetch($(apiBase)/tasks)
+                .then(response => response.json())
+                .then(tasks => {
+                    const taskList = document.getElementById('tasklist');
+                    taskList.innerHTML = '';
+                    tasks.forEach((task,index) =>{
+                        taskList.innerHTML += `<li>${task}
+                          <button onclick="deleteTask(${index})"">Delete<button></li>`;
+                 }
+                )
+                })
+        }
+
+        //add new task
+        function addTask (){
+           const taskInput = document.getElementById('taskInput').value.trim();
+           if (taskInput){
+            fetch('${apiBase}/tasks',{
+                method : 'POST',
+                headers : {'content-Type' : 'application/json'},
+                body : JSON.stringify({task : taskInput})
+            }).then(()=> {
+                document.getElementById('taskInput').value = '';
+                fetchTask();
+            });
+         } else {
+                        alert('please enter a task');
+            }
+           }
+           // Delete a task
+        function deleteTask(taskId) {
+            fetch('${apiBase}/tasks/${taskId}', { method: 'DELETE' })
+                .then(() => fetchTasks());
+        }
+
+    </script>
+</body>
+</html>
