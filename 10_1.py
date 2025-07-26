@@ -28,3 +28,5 @@ print(a,b,c)
 
 x=y=z= 'hello'
 print(x,y,z)
+
+print(a)
