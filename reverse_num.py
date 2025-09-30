@@ -6,3 +6,7 @@ while a>0:
     rev=rev*10+digit
     a = a//10
 print(rev)
+
+fruits = ['apple', 'banana', 'cherry']
+newlist = ['apple' for x in fruits]
+print(newlist)

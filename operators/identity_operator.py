@@ -14,7 +14,6 @@ print(a is b)
 
 print(a is c)
 
-# membershhip operator
 print(a is not b)
 
 print(a is not c)
