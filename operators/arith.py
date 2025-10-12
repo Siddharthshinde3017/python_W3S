@@ -1,4 +1,4 @@
-# arithmatic operators are used to perform the mathematical operations on the variables
+ # arithmatic operators are used to perform the mathematical operations on the variables
 
 x = 10
 y = 20
@@ -16,3 +16,6 @@ print(x//y) #floor division - This operator removes the decimal factor in the di
 print(x%y) # modulos - This operator returns the remainder of he division
 
 print(x ** y) # exponential
+
+
+print(2<5)
