@@ -1,0 +1,11 @@
+- Django is an open source framework for backend web application based development.
+
+-It focus on creating websites that can handle high amount of traffic and transactions.
+
+- features
+    vast community
+    open source
+    enhance security
+    rapid development
+    versatile
+
