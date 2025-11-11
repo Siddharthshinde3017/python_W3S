@@ -8,4 +8,7 @@ print(np.median(arr))
 print(np.std(arr))
 print(np.max(arr))
 print(np.min(arr))
+print(np.size(arr))
+print(np.shape(arr))
+
 
